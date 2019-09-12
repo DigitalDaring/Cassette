@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cassette</title>
+    <style>
+        transparent-cassette {
+            border: 1px solid #ccc;
+            width: 600px;
+            height: 320px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-rows: 40px auto 40px;
+            grid-template-columns: 40px auto auto auto 40px;
+            grid-template-areas: 'topleftscrew .      .      .      toprightscrew'
+                                 'label        label  label  label  label'
+                                 'botleftscrew .      slot   .      botrightscrew'
+        }
+
+        small-screw {
+            display: flex;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            align-self: center;
+            justify-self: center;
+            position: relative;
+        }
+
+        small-screw::after {
+            content: '+';
+            color: #ccc;
+            position: absolute;
+            top: -2px;
+            left: 5px;
+            font-size: 19px;
+        }
+
+        small-screw.top-left {
+            grid-area: topleftscrew;
+        }
+
+        small-screw.top-right {
+            grid-area: toprightscrew;
+        }
+
+        small-screw.bottom-left {
+            grid-area: botleftscrew;
+        }
+
+        small-screw.bottom-right {
+            grid-area: botrightscrew;
+        }
+
+        album-label {
+            grid-area: label;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            align-self: center;
+            display: flex;
+            flex-direction: row;
+            height: 32%;
+            overflow: visible;
+            justify-content: space-around;
+        }
+
+        spool {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 100%;
+            align-self: center;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        album-label spool:first-child::before {
+            content: " ";
+            display: flex;
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 100%;
+            border: 1px solid #ccc;
+            left: calc(50% - 71px);
+            top: calc(50% - 71px);
+        }
+
+        album-label spool:last-child::before {
+            content: " ";
+            display: flex;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            border: 1px solid #ccc;
+            left: calc(50% - 101px);
+            top: calc(50% - 101px);
+        }
+
+        spool-hole {
+            display: flex;
+            border: 1px solid #ccc;
+            width: 90px;
+            height: 90px;
+            border-radius: 100%;
+            position: relative;
+        }
+
+        spool-hole::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            border: 1px solid #ccc;
+        }
+
+        spool-hole::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 68px;
+            height: 68px;
+            border-radius: 100%;
+            border: 1px solid #ccc;
+        }
+
+        spool-spoke {
+            display: block;
+            border: 1px solid #ccc;
+            height: 24px;
+            width: 8px;
+            top: 0;
+            left: 38px;
+            position:absolute;
+            transform-origin: 7px 45px;
+        }
+
+        spool-spoke:first-child {
+            transform: rotate(-60deg);
+
+        }
+
+        spool-spoke:nth-child(2) {
+            transform: rotate(-120deg);
+        }
+
+        spool-spoke:nth-child(3) {
+            transform: rotate(-180deg);
+        }
+
+        spool-spoke:nth-child(4) {
+            transform: rotate(-240deg);
+        }
+
+        spool-spoke:nth-child(5) {
+            transform: rotate(-300deg);
+        }
+
+        spool-spoke:last-child {
+            transform: rotate(0deg);
+        }
+
+    </style>
+</head>
+<body>
+    <transparent-cassette>
+        <small-screw class="top-left"></small-screw>
+        <small-screw class="top-right"></small-screw>
+
+        <album-label>
+            <spool>
+                <spool-hole>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                </spool-hole>
+            </spool>
+            <spool>
+                <spool-hole>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                </spool-hole>
+            </spool>
+        </album-label>
+
+        <small-screw class="bottom-left"></small-screw>
+        <small-screw class="bottom-right"></small-screw>
+
+    </transparent-cassette>
+</body>
+</html>
