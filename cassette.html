@@ -6,10 +6,18 @@
     <style>
 
         body {
-            padding-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         transparent-cassette {
+/*
+            background: repeating-linear-gradient( 0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px );
+*/
+
+            position: relative;
             border: 1px solid #ccc;
             width: 600px;
             height: 320px;
@@ -17,9 +25,9 @@
             display: grid;
             grid-template-rows: 40px auto 40px;
             grid-template-columns: 40px 40px auto 40px 40px;
-            grid-template-areas: 'topleftscrew .      .      .      toprightscrew'
-                                 'label        label  label  label  label'
-                                 'botleftscrew leftaxel   slot   rightaxel   botrightscrew'
+            grid-template-areas: 'topleftscrew .          .      .           toprightscrew'
+                                 'label        label      label  label       label'
+                                 'botleftscrew leftaxle   slot   rightaxle   botrightscrew'
         }
 
         small-screw {
@@ -70,7 +78,7 @@
             justify-content: space-around;
         }
 
-        spool {
+        tape-spool {
             display: flex;
             border: 1px solid #ccc;
             border-radius: 100%;
@@ -82,7 +90,7 @@
             justify-content: center;
         }
 
-        album-label spool:first-child::before {
+        album-label tape-spool:first-child::before {
             content: " ";
             display: flex;
             position: absolute;
@@ -94,16 +102,16 @@
             top: calc(50% - 71px);
         }
 
-        album-label spool:last-child::before {
+        album-label tape-spool:last-child::before {
             content: " ";
             display: flex;
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 190px;
+            height: 190px;
             border-radius: 100%;
             border: 1px solid #ccc;
-            left: calc(50% - 101px);
-            top: calc(50% - 101px);
+            left: calc(50% - 96px);
+            top: calc(50% - 96px);
         }
 
         spool-hole {
@@ -195,6 +203,8 @@
             justify-self: center;
             align-self: end;
             position: relative;
+            align-items: flex-end;
+            justify-content: space-evenly;
         }
 
         tape-slot::before {
@@ -219,16 +229,150 @@
             content: " ";
         }
 
+        tape-axle {
+            border: 1px solid #ccc;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+            display: block;
+            position: relative;
+        }
+
+        tape-axle::before {
+            position: absolute;
+            content: " ";
+            top: 11px;
+            left: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 100%;
+            border: 1px solid #ccc;
+        }
+
+        tape-axle.left {
+            grid-area: leftaxle;
+        }
+
+        tape-axle.right {
+            grid-area: rightaxle;
+        }
+
+        tape-run {
+            position: absolute;
+            border-left: 1px solid #ccc;
+        }
+
+        tape-spool:first-child tape-run {
+            height: 158px;
+            left: -37px;
+            top: 22px;
+            transform: rotate(15deg);
+
+        }
+
+        tape-spool:last-child tape-run {
+            height: 141px;
+            right: -49px;
+            top: 43px;
+            transform: rotate(-2.5deg);
+        }
+
+        tape-slot punched-hole{
+            width: 18px;
+            height: 18px;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 100%;
+            margin-bottom: 5px;
+        }
+
+        tape-slot punched-hole:nth-child(2),
+        tape-slot punched-hole:nth-child(4) {
+            margin-bottom: 20px;
+        }
+
+        tape-slot tape-read {
+            width: 50px;
+            height: 20px;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        tape-slot tape-read soft-padding {
+            width: 10px;
+            height: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: -1px;
+        }
+
+        bottom-tape {
+            position: absolute;
+            left: 53px;
+            bottom: 8px;
+            width: 80%;
+            border-bottom: 1px solid #ccc;
+        }
+
+        side-nubbin {
+            width: 8px;
+            height: 120px;
+            bottom: 24px;
+            border: 1px solid #CCC;
+            border-top: none;
+            position: absolute;
+
+        }
+
+        side-nubbin::before {
+            content: " ";
+            position: absolute;
+            top: -10px;
+            height: 10px;
+            width: 8px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+
+        }
+
+        side-nubbin:first-child {
+            left: -10px;
+            transform: skewY(18deg);
+        }
+
+        side-nubbin:first-child::before {
+            left: -1px;
+            transform: skewY(-35deg);
+        }
+
+        side-nubbin:last-child {
+            right: -10px;
+            transform: skewY(-18deg);
+        }
+
+        side-nubbin:last-child::before {
+            right: -1px;
+            transform: skewY(35deg);
+        }
+
+
 
     </style>
 </head>
 <body>
     <transparent-cassette>
+        <side-nubbin></side-nubbin>
         <small-screw class="top-left"></small-screw>
         <small-screw class="top-right"></small-screw>
 
+        <tape-axle class="left"></tape-axle>
+
         <album-label>
-            <spool>
+            <tape-spool>
+                <tape-run></tape-run>
                 <spool-hole>
                     <spool-spoke></spool-spoke>
                     <spool-spoke></spool-spoke>
@@ -237,8 +381,8 @@
                     <spool-spoke></spool-spoke>
                     <spool-spoke></spool-spoke>
                 </spool-hole>
-            </spool>
-            <spool>
+            </tape-spool>
+            <tape-spool>
                 <spool-hole>
                     <spool-spoke></spool-spoke>
                     <spool-spoke></spool-spoke>
@@ -247,16 +391,27 @@
                     <spool-spoke></spool-spoke>
                     <spool-spoke></spool-spoke>
                 </spool-hole>
-            </spool>
+                <tape-run></tape-run>
+            </tape-spool>
         </album-label>
 
         <tape-slot>
-
+            <punched-hole></punched-hole>
+            <punched-hole></punched-hole>
+            <tape-read>
+                <soft-padding></soft-padding>
+            </tape-read>
+            <punched-hole></punched-hole>
+            <punched-hole></punched-hole>
         </tape-slot>
+
+        <bottom-tape></bottom-tape>
+
+        <tape-axle class="right"></tape-axle>
 
         <small-screw class="bottom-left"></small-screw>
         <small-screw class="bottom-right"></small-screw>
-
+        <side-nubbin></side-nubbin>
     </transparent-cassette>
 </body>
 </html>

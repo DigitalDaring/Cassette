@@ -19,9 +19,12 @@
       <file leaf-file-name="cassette.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cassette.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+              <folding>
+                <element signature="n#spool-hole#0;n#tape-spool#0;n#album-label#0;n#transparent-cassette#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#spool-hole#0;n#tape-spool#1;n#album-label#0;n#transparent-cassette#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,8 +61,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="660" />
-    <option name="y" value="75" />
+    <option name="x" value="300" />
+    <option name="y" value="23" />
     <option name="width" value="1228" />
     <option name="height" value="777" />
   </component>
@@ -128,15 +131,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568246197766</updated>
-      <workItem from="1568246198956" duration="5330000" />
+      <workItem from="1568246198956" duration="8803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5330000" />
+    <option name="totallyTimeSpent" value="8803000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="660" y="75" width="1228" height="777" extended-state="0" />
+    <frame x="300" y="23" width="1228" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -171,9 +174,12 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cassette.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+          <folding>
+            <element signature="n#spool-hole#0;n#tape-spool#0;n#album-label#0;n#transparent-cassette#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#spool-hole#0;n#tape-spool#1;n#album-label#0;n#transparent-cassette#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
