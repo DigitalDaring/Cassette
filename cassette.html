@@ -11,10 +11,10 @@
             border-radius: 20px;
             display: grid;
             grid-template-rows: 40px auto 40px;
-            grid-template-columns: 40px auto auto auto 40px;
+            grid-template-columns: 40px 40px auto 40px 40px;
             grid-template-areas: 'topleftscrew .      .      .      toprightscrew'
                                  'label        label  label  label  label'
-                                 'botleftscrew .      slot   .      botrightscrew'
+                                 'botleftscrew leftaxel   slot   rightaxel   botrightscrew'
         }
 
         small-screw {
@@ -170,6 +170,40 @@
             transform: rotate(0deg);
         }
 
+        tape-slot {
+            grid-area: slot;
+            border-top: 1px solid #ccc;
+            width: 80%;
+            display: flex;
+            height: 66px;
+            justify-self: center;
+            align-self: end;
+            position: relative;
+        }
+
+        tape-slot::before {
+            position: absolute;
+            left: -13px;
+            top: -3px;
+            height: 72px;
+            border-left: 1px solid #CCC;
+            transform: rotate(20deg);
+            display: block;
+            content: " ";
+        }
+
+        tape-slot::after {
+            position: absolute;
+            right: -13px;
+            top: -3px;
+            height: 72px;
+            border-left: 1px solid #CCC;
+            transform: rotate(-20deg);
+            display: block;
+            content: " ";
+        }
+
+
     </style>
 </head>
 <body>
@@ -199,6 +233,10 @@
                 </spool-hole>
             </spool>
         </album-label>
+
+        <tape-slot>
+
+        </tape-slot>
 
         <small-screw class="bottom-left"></small-screw>
         <small-screw class="bottom-right"></small-screw>
