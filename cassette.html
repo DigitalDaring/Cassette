@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cassette</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <style>
 
         body {
@@ -13,9 +14,7 @@
         }
 
         transparent-cassette {
-/*
             background: repeating-linear-gradient( 0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px );
-*/
 
             position: relative;
             border: 1px solid #ccc;
@@ -23,10 +22,12 @@
             height: 320px;
             border-radius: 20px;
             display: grid;
-            grid-template-rows: 40px auto 40px;
+            grid-template-rows: 40px 48px auto auto 40px;
             grid-template-columns: 40px 40px auto 40px 40px;
             grid-template-areas: 'topleftscrew .          .      .           toprightscrew'
-                                 'label        label      label  label       label'
+                                 'label        label      label  label       label        '
+                                 'spools       spools     spools spools      spools       '
+                                 '.            .          .      .           .            '
                                  'botleftscrew leftaxle   slot   rightaxle   botrightscrew'
         }
 
@@ -39,6 +40,7 @@
             align-self: center;
             justify-self: center;
             position: relative;
+            background-color: #fff;
         }
 
         small-screw::after {
@@ -66,19 +68,18 @@
             grid-area: botrightscrew;
         }
 
-        album-label {
-            grid-area: label;
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
+        center-spools {
+            grid-area: spools;
             align-self: center;
             display: flex;
             flex-direction: row;
-            height: 32%;
+            height: auto;
             overflow: visible;
             justify-content: space-around;
         }
 
         tape-spool {
+            background-color: #fff;
             display: flex;
             border: 1px solid #ccc;
             border-radius: 100%;
@@ -90,7 +91,7 @@
             justify-content: center;
         }
 
-        album-label tape-spool:first-child::before {
+        center-spools tape-spool:first-child::before {
             content: " ";
             display: flex;
             position: absolute;
@@ -102,7 +103,7 @@
             top: calc(50% - 71px);
         }
 
-        album-label tape-spool:last-child::before {
+        center-spools tape-spool:last-child::before {
             content: " ";
             display: flex;
             position: absolute;
@@ -284,6 +285,7 @@
             border: 1px solid #ccc;
             border-radius: 100%;
             margin-bottom: 5px;
+            background-color: #fff;
         }
 
         tape-slot punched-hole:nth-child(2),
@@ -358,6 +360,26 @@
             transform: skewY(35deg);
         }
 
+        album-label {
+            grid-area: label;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            box-sizing: border-box;
+            z-index: 999;
+            background-color: #fff;
+            /*background: repeating-linear-gradient( 0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px );*/
+        }
+
+        album-label h1 {
+            margin: 0;
+            display: inline-block;
+            text-align: center;
+            font-family: 'Indie Flower', cursive;
+            z-index:999;
+        }
 
 
     </style>
@@ -371,29 +393,33 @@
         <tape-axle class="left"></tape-axle>
 
         <album-label>
-            <tape-spool>
-                <tape-run></tape-run>
-                <spool-hole>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                </spool-hole>
-            </tape-spool>
-            <tape-spool>
-                <spool-hole>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                    <spool-spoke></spool-spoke>
-                </spool-hole>
-                <tape-run></tape-run>
-            </tape-spool>
+            <h1>Transparent Silence Mix (B)</h1>
         </album-label>
+
+        <center-spools>
+            <tape-spool>
+                <tape-run></tape-run>
+                <spool-hole>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                </spool-hole>
+            </tape-spool>
+            <tape-spool>
+                <spool-hole>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                    <spool-spoke></spool-spoke>
+                </spool-hole>
+                <tape-run></tape-run>
+            </tape-spool>
+        </center-spools>
 
         <tape-slot>
             <punched-hole></punched-hole>
